@@ -1,0 +1,55 @@
+#!/bin/bash
+
+while true
+do
+    clear
+    echo "1) Ver el contenido del directorio"
+    echo "2) Copiar un archivo"
+    echo "3) Crear un directorio"
+    echo "4) Ver el contenido de un archivo"
+    echo "5) borra archivo"
+    echo "6) Salir"
+    read opcion
+    case $opcion in
+        1) clear
+        echo "el directorio es: "
+        ls -las
+        echo "presione enter para continuar"
+        read tecla
+        ;;
+        2) echo -n "Ingrese el nombre del archivo a copiar: "
+        read archivo
+        echo -n "Introduce el nombre del nuevo archivo: "
+        read nuevo
+        cp $archivo $nuevo
+        echo "Archivo copiado."
+        echo "presione enter para continuar"
+        read tecla
+        ;;
+        3) echo -n "Ingrese el nombre del directorio: "
+        read directorio
+        mkdir $directorio
+        echo "Directorio creado."
+        echo "presione enter para continuar" 
+        read tecla
+        ;;
+        4) echo -n "Ingrese el nombre del archivo a visualizar: "
+        read archivo
+        cat $archivo
+        echo "presione enter para continuar" 
+        read tecla
+        ;;
+        5) echo -n "Ingrese el nombre del archivo a borrar: "
+        read archivo
+        rm archivo
+        echo "archivo borrado"
+        echo "presione enter para continuar" 
+        read tecla
+        ;;
+        6) echo "Saliendo..."
+        exit 0
+        ;;
+        *) echo "$opcion no es válido. Por favor seleccione una opción del 1 al 6."
+        ;;
+    esac
+done
